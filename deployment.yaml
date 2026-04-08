@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricing-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pricing
+  template:
+    metadata:
+      labels:
+        app: pricing
+    spec:
+      containers:
+      - name: pricing-container
+        image: dynamic-pricing-system
+        ports:
+        - containerPort: 8080
